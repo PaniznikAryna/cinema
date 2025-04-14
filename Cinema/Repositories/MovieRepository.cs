@@ -1,43 +1,51 @@
 ﻿using Cinema.Entity;
 using Cinema.Interfaces.Repositories;
+using Cinema.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Repositories
 {
     public class MovieRepository : IMovieRepository
     {
-        private readonly List<Movie> _movies = new();
+        private readonly CinemaContext _context;
 
-        public IEnumerable<Movie> GetAll() => _movies;
+        public MovieRepository(CinemaContext context)
+        {
+            _context = context;
+        }
 
-        public Movie? GetById(int id) => _movies.FirstOrDefault(m => m.Id == id);
+        public IEnumerable<Movie> GetAll()
+        {
+            return _context.Movies.ToList();
+        }
+
+        public Movie? GetById(int id)
+        {
+            return _context.Movies.FirstOrDefault(movie => movie.Id == id);
+        }
+
 
         public Movie Add(Movie movie)
         {
-            movie.Id = _movies.Count > 0 ? _movies.Max(m => m.Id) + 1 : 1;
-            _movies.Add(movie);
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
             return movie;
         }
 
         public void Update(Movie movie)
         {
-            var existingMovie = GetById(movie.Id);
-            if (existingMovie != null)
-            {
-                existingMovie.Title = movie.Title;
-                existingMovie.Duration = movie.Duration;
-                existingMovie.ReleaseDate = movie.ReleaseDate;
-                existingMovie.Country = movie.Country;
-                existingMovie.AgeRestriction = movie.AgeRestriction;
-                existingMovie.GenreIds = movie.GenreIds;
-                existingMovie.ParticipantIds = movie.ParticipantIds;
-                existingMovie.SessionIds = movie.SessionIds;
-            }
+            _context.Movies.Update(movie);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var movie = GetById(id);
-            if (movie != null) _movies.Remove(movie);
+            var movieToDelete = _context.Movies.FirstOrDefault(movie => movie.Id == id);
+            if (movieToDelete != null)
+            {
+                _context.Movies.Remove(movieToDelete);
+                _context.SaveChanges();
+            }
         }
     }
 }

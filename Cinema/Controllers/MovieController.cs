@@ -6,11 +6,11 @@ namespace Cinema.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MoviesController : ControllerBase
+    public class MovieController : ControllerBase
     {
         private readonly IMovieService _service;
 
-        public MoviesController(IMovieService service)
+        public MovieController(IMovieService service)
         {
             _service = service;
         }

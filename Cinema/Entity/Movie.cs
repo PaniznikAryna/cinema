@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.Entity
 {
@@ -10,7 +12,7 @@ namespace Cinema.Entity
         public string Title { get; set; } = string.Empty;
 
         [Required]
-        public int Duration { get; set; }
+        public TimeSpan Duration { get; set; }
 
         [Required]
         public DateTime ReleaseDate { get; set; }
@@ -21,12 +23,8 @@ namespace Cinema.Entity
         [Required]
         public int AgeRestriction { get; set; }
 
-        [Required]
-        public List<int> GenreIds { get; set; } = new();
-
-        [Required]
-        public List<int> ParticipantIds { get; set; } = new();
-
-        public List<int> SessionIds { get; set; } = new();
+        public ICollection<Genre> Genres { get; set; } = new List<Genre>();
+        public ICollection<Participant> Participants { get; set; } = new List<Participant>();
+        public ICollection<Session> Sessions { get; set; } = new List<Session>();
     }
 }

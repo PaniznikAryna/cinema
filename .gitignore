@@ -1,0 +1,35 @@
+# Игнорирование временных файлов Visual Studio:
+.vs/
+
+# Игнорирование пользовательских и служебных файлов:
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Игнорирование файлов MonoDevelop/Xamarin Studio:
+*.userprefs
+
+# Игнорирование папок с результатами сборки:
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+
+# Игнорирование логов и результатов тестов:
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Игнорирование NuGet пакетов (при использовании функции восстановления пакетов):
+*.nupkg
+**/packages/*
+
+# Правила для дополнительных инструментов (например, ReSharper):
+_ReSharper*/
+*.DotSettings.user
