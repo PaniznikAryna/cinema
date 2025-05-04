@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.Entity
 {
+    [Table("Session")]
+
     public class Session
     {
         public int Id { get; set; }

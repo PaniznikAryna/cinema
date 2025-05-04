@@ -45,7 +45,13 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    
+    // Создаем скоуп для получения экземпляра CinemaContext
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<CinemaContext>();
+        //dbContext.Database.EnsureDeleted(); // Удаляет базу (только для разработки!)
+        //dbContext.Database.EnsureCreated(); // Создает базу заново, основываясь на текущей модели
+    }
 }
 
 app.UseHttpsRedirection(); 

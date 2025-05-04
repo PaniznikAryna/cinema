@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cinema.Entity
 {
+    [Table("Movie")]
     public class Movie
     {
         public int Id { get; set; }
@@ -12,7 +14,7 @@ namespace Cinema.Entity
         public string Title { get; set; } = string.Empty;
 
         [Required]
-        public TimeSpan Duration { get; set; }
+        public int Duration { get; set; }
 
         [Required]
         public DateTime ReleaseDate { get; set; }

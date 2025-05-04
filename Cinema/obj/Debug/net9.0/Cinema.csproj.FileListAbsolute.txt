@@ -123,10 +123,10 @@ D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets\msbuild.build.Cinema.prop
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Cinema.props
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Cinema.props
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets.pack.json
-D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\Cinema.csproj.Up2Date
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\Cinema.dll
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\refint\Cinema.dll
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\Cinema.pdb
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\Cinema.genruntimeconfig.cache
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\ref\Cinema.dll
+D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Cinema.Entity;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
 
 namespace Cinema.Infrastructure.Data
-
 {
     public class CinemaContext : DbContext
     {
@@ -23,5 +21,21 @@ namespace Cinema.Infrastructure.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Movie>()
+                .HasMany(m => m.Genres)
+                .WithMany(g => g.Movies)
+                .UsingEntity<Dictionary<string, object>>(
+                    "MovieGenre",
+                    j => j.HasOne<Genre>()
+                          .WithMany()
+                          .HasForeignKey("GenreId"),
+                    j => j.HasOne<Movie>()
+                          .WithMany()
+                          .HasForeignKey("MovieId"));
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

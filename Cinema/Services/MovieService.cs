@@ -17,7 +17,15 @@ namespace Cinema.Services
 
         public Movie? GetById(int id) => _repository.GetById(id);
 
-        public Movie Add(Movie movie) => _repository.Add(movie);
+        public Movie Add(Movie movie)
+        {
+            if (movie.ReleaseDate.Kind != DateTimeKind.Utc)
+            {
+                movie.ReleaseDate = DateTime.SpecifyKind(movie.ReleaseDate, DateTimeKind.Utc);
+            }
+
+            return _repository.Add(movie);
+        }
 
         public void Update(Movie movie) => _repository.Update(movie);
 
