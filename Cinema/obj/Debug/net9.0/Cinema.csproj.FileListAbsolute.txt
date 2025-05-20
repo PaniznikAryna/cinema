@@ -130,3 +130,12 @@ D:\piip\Cinema\Cinema\obj\Debug\net9.0\Cinema.pdb
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\Cinema.genruntimeconfig.cache
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\ref\Cinema.dll
 D:\piip\Cinema\Cinema\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\piip\Cinema\Cinema\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

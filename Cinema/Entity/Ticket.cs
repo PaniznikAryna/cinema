@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Cinema.Entity
 {
@@ -10,13 +11,16 @@ namespace Cinema.Entity
         [Required]
         [Column("Session_id")]
         public int SessionId { get; set; }
+
+        [JsonIgnore]
         public Session Session { get; set; } = null!;
 
         [Required]
         [Column("Seat_id")]
         public int SeatId { get; set; }
-        public Seat Seat { get; set; } = null!;
 
+        [JsonIgnore]
+        public Seat Seat { get; set; } = null!;
 
         [Required]
         [Column("Purchase_date")]
@@ -25,8 +29,8 @@ namespace Cinema.Entity
         [Required]
         [Column("User_id")]
         public int UserId { get; set; }
+
+        [JsonIgnore]
         public User User { get; set; } = null!;
-
-
     }
-}
+    }

@@ -1,6 +1,7 @@
-﻿using Cinema.Entity;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Cinema.Entity;
 using Cinema.Interfaces.Services;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Controllers
 {
@@ -16,9 +17,11 @@ namespace Cinema.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IEnumerable<Participant> GetAll() => _service.GetAll();
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public ActionResult<Participant> GetById(int id)
         {
             var participant = _service.GetById(id);
@@ -26,6 +29,7 @@ namespace Cinema.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Администратор")]
         public ActionResult<Participant> Add(Participant participant)
         {
             var newParticipant = _service.Add(participant);
@@ -33,14 +37,18 @@ namespace Cinema.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Администратор")]
         public IActionResult Update(int id, Participant participant)
         {
-            if (id != participant.Id) return BadRequest();
+            if (id != participant.Id)
+                return BadRequest();
+
             _service.Update(participant);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Администратор")]
         public IActionResult Delete(int id)
         {
             _service.Delete(id);

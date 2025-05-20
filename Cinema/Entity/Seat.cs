@@ -22,7 +22,8 @@ namespace Cinema.Entity
         [Required]
         [Column("Seat_type_id")]
         public int SeatTypeId { get; set; }
-        public Hall Hall { get; set; } = null!;
-        public SeatType SeatType { get; set; } = null!;
+        public Hall? Hall { get; set; }
+        public SeatType? SeatType { get; set; }
+
     }
 }
